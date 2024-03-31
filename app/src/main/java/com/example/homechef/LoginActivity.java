@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     throw new Exception("Invalid Email");
                 }
                 loginUser(user_email,user_password);
-                login.doneLoadingAnimation(Color.parseColor("#5856EC"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_done_white_48dp));
+                login.doneLoadingAnimation(Color.parseColor("#5856EC"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_done_white_48));
 
             }
             catch (Exception e){
