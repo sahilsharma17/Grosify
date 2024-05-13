@@ -1,9 +1,3 @@
-/* Assignment: 3
-Campus: Ashdod
-Authors:
-Eliran Naduyev 312089105
-Maria Garber
-*/
 
 package com.example.homechef;
 
@@ -48,7 +42,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View RootView = inflater.inflate(R.layout.fragment_search, container, false);
         Toolbar mToolbarContact = RootView.findViewById(R.id.toolbar_search);
-        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(mToolbarContact);
+        ((AppCompatActivity) requireActivity()).setSupportActionBar(mToolbarContact);
         myrv = RootView.findViewById(R.id.recycleview_ingredients);
         myrv.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         RecyclerViewAdapterIngredient myAdapter = new RecyclerViewAdapterIngredient(getContext(), lstIngredient);
@@ -74,13 +68,14 @@ public class SearchFragment extends Fragment {
     }
 
     private void initializeIngredients() {
-        lstIngredient.add(new Ingredient("Beef", "beef-cubes-raw.png"));
-        lstIngredient.add(new Ingredient("Fish", "fish-fillet.jpg"));
-        lstIngredient.add(new Ingredient("Chicken", "chicken-breasts.png"));
-        lstIngredient.add(new Ingredient("Tuna", "canned-tuna.png"));
-        lstIngredient.add(new Ingredient("Flour", "flour.png"));
         lstIngredient.add(new Ingredient("Rice", "uncooked-white-rice.png"));
         lstIngredient.add(new Ingredient("Pasta", "fusilli.jpg"));
+        //lstIngredient.add(new Ingredient("Beef", "beef-cubes-raw.png"));
+        //lstIngredient.add(new Ingredient("Fish", "fish-fillet.jpg"));
+        lstIngredient.add(new Ingredient("Chicken", "chicken-breasts.png"));
+        //lstIngredient.add(new Ingredient("Tuna", "canned-tuna.png"));
+        lstIngredient.add(new Ingredient("Flour", "flour.png"));
+
         lstIngredient.add(new Ingredient("Cheese", "cheddar-cheese.png"));
         lstIngredient.add(new Ingredient("Butter", "butter.png"));
         lstIngredient.add(new Ingredient("Bread", "white-bread.jpg"));
@@ -132,6 +127,6 @@ public class SearchFragment extends Fragment {
     private void sendToLogin() {
         Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
         startActivity(loginIntent);
-        Objects.requireNonNull(getActivity()).finish();// The user can't come back to this page
+        requireActivity().finish();// The user can't come back to this page
     }
 }
